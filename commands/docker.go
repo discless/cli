@@ -17,13 +17,13 @@ var (
 
 var StartCmd = &cobra.Command{
 	Use: "start",
-	Short: "Start the Discless background daemon.",
+	Short: "Start the Discless background daemon",
 	RunE: StartDaemon,
 }
 
 var StopCmd = &cobra.Command{
 	Use: "stop",
-	Short: "Stop the Discless background daemon.",
+	Short: "Stop the Discless background daemon",
 	RunE: StopDaemon,
 }
 

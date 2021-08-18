@@ -15,14 +15,14 @@ import (
 	"time"
 )
 
-var ApplyCmd = &cobra.Command{
-	Use: "apply [bot] [function configuration]",
-	Short: "Create a new function with given name",
+var DeployCmd = &cobra.Command{
+	Use: "deploy [bot] [function configuration]",
+	Short: "Deploys a given function to a bot",
 	Args: cobra.MinimumNArgs(2),
-	RunE: FApply,
+	RunE: FDeploy,
 }
 
-func FApply(c *cobra.Command, args []string) error {
+func FDeploy(c *cobra.Command, args []string) error {
 	file, err := ioutil.ReadFile(args[1])
 	if err != nil {
 		return err
@@ -31,13 +31,13 @@ func FApply(c *cobra.Command, args []string) error {
 	yaml.Unmarshal(file, config)
 
 	for function, ap := range config.Functions {
-		PostApply(function,ap, args[0])
+		PostDeploy(function,ap, args[0])
 	}
 
 	return nil
 }
 
-func PostApply(name string, function types.Function, bot string) error {
+func PostDeploy(name string, function types.Function, bot string) error {
 	client := &http.Client{
 		Timeout: time.Second * 10,
 	}
