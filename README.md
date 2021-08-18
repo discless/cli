@@ -1,5 +1,18 @@
-# discless-cli
+# Discless CLI
 CLI to communicate with the Discless backend.
+
+## Setup
+Befure using the CLI you need to install Discless.
+First, clone the repository
+```shell
+$ git clone https://github.com/discless/discless.git && cd discless && go run .
+```
+or use `go get`
+```shell
+go get https://github.com/discless/discless && cd $GOPATH/github.com/discless/discless && go run .
+```
+
+An easier way of running discless is comming soon
 
 ## Examples
 ### Create a bot and function
