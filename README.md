@@ -1,10 +1,13 @@
 # Discless CLI
+[![Go](https://github.com/discless/discless-cli/actions/workflows/go.yml/badge.svg)](https://github.com/discless/discless-cli/actions/workflows/go.yml)
 CLI to communicate with the Discless backend.
 
 ## Setup
+First download the Discless binary from the ![releases](https://github.com/discless/discless-cli/releases)
+Or clone the repository using `git clone https://github.com/discless/discless-cli.git` and run `go build .` to compile Discless yourself
 To start Discless, run
 ```shell
-$ discless-cli start
+$ ./discless-cli start
 Succesfully started Docker daemon.
 ```
 
@@ -12,7 +15,7 @@ Succesfully started Docker daemon.
 ### Create a bot and function
 First, run the `new bot` command and enter your bots token
 ```shell
-$ discless-cli new bot <bot name> <prefix>
+$ ./discless-cli new bot <bot name> <prefix>
 Enter your bot's token: 
 Succesfully created the bot <bot name>
 ```
@@ -20,7 +23,7 @@ Your bot should be up and running now, time to create your first command.
 
 Run
 ```shell
-$ discless-cli new function <function name>
+$ ./discless-cli new function <function name>
 Created the function <function name>
 Edit its configuration in function.yaml or edit the function in <function name>.go
 ```
@@ -42,7 +45,7 @@ You can freely edit this file.
 
 To get your command up and running on the bot, run
 ```shell
-$ discless-cli apply <bot name> <function configuration>.yaml
+$ ./discless-cli apply <bot name> <function configuration>.yaml
 Succesfully uploaded the <function name> command
 ```
 
