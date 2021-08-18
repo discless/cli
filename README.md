@@ -2,17 +2,11 @@
 CLI to communicate with the Discless backend.
 
 ## Setup
-Befure using the CLI you need to install Discless.
-First, clone the repository
+To start Discless, run
 ```shell
-$ git clone https://github.com/discless/discless.git && cd discless && go run .
+$ discless-cli start
+Succesfully started Docker daemon.
 ```
-or use `go get`
-```shell
-go get https://github.com/discless/discless && cd $GOPATH/github.com/discless/discless && go run .
-```
-
-An easier way of running discless is comming soon
 
 ## Examples
 ### Create a bot and function
@@ -50,4 +44,14 @@ To get your command up and running on the bot, run
 ```shell
 $ discless-cli apply <bot name> <function configuration>.yaml
 Succesfully uploaded the <function name> command
+```
+
+## Manually installing discless
+To manually install discless, clone the repository
+```shell
+$ git clone https://github.com/discless/discless.git && cd discless && go run .
+```
+or use `go get`
+```shell
+go get https://github.com/discless/discless && cd $GOPATH/github.com/discless/discless && go run .
 ```
