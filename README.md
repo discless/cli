@@ -1,10 +1,10 @@
 # Discless CLI
-[![Go](https://github.com/discless/discless-cli/actions/workflows/go.yml/badge.svg)](https://github.com/discless/discless-cli/actions/workflows/go.yml)
+[![Go](https://github.com/discless/discless-cli/actions/workflows/go.yml/badge.svg)](https://github.com/discless/discless-cli/actions/workflows/go.yml)<br>
 CLI to communicate with the Discless backend.
 
 ## Setup
-First download the Discless binary from the ![releases](https://github.com/discless/discless-cli/releases)
-Or clone the repository using `git clone https://github.com/discless/discless-cli.git` and run `go build .` to compile Discless yourself
+First download the Discless binary from the ![releases](https://github.com/discless/discless-cli/releases),
+or clone the repository using `git clone https://github.com/discless/discless-cli.git` and run `go build .` to compile Discless yourself
 To start Discless, run
 ```shell
 $ ./discless-cli start
