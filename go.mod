@@ -13,5 +13,3 @@ require (
 	golang.org/x/term v0.0.0-20210615171337-6886f2dfbf5b
 	gopkg.in/yaml.v2 v2.4.0
 )
-
-replace github.com/discless/discless => /home/tris/Coding/Go/src/github.com/discless/discless
