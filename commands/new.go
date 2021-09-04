@@ -3,7 +3,7 @@ package commands
 import "github.com/spf13/cobra"
 
 var NewCmd = &cobra.Command{
-	Use: "new [bot | function]",
-	Short: "Create a new function or bot with given name",
-	Args: cobra.MinimumNArgs(2),
+	Use: "new [bot | function | secret]",
+	Short: "Create a new function, bot or secret with given name",
+	Args: cobra.MinimumNArgs(1),
 }

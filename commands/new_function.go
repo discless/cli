@@ -2,7 +2,8 @@ package commands
 
 import (
 	"fmt"
-	"github.com/discless/discless-cli/types"
+	"github.com/discless/discless/types/config"
+	"github.com/discless/discless/types/kinds"
 	"github.com/spf13/cobra"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
@@ -16,8 +17,9 @@ var NewFuncCmd = &cobra.Command{
 }
 
 func FNewFunc(cmd *cobra.Command, args []string) error {
-	yamlTemplate := &types.Config{
-		map[string]types.Function{
+	yamlTemplate := &config.Config{
+		kinds.Function,
+		map[string]config.Function{
 			args[0]:{
 				File:     args[0]+".go",
 				Function:	"Handler",

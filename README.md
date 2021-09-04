@@ -12,14 +12,32 @@ Succesfully started Docker daemon.
 ```
 
 ## Examples
-### Create a bot and function
+### Create a bot
 First, run the `new bot` command and enter your bots token
 ```shell
 $ ./discless-cli new bot <bot name> <prefix>
-Enter your bot's token: 
-Succesfully created the bot <bot name>
+Created bot in bot.yaml
 ```
 Your bot should be up and running now, time to create your first command.
+
+## Run your bot
+First, create a new secret for your token
+```shell
+$ ./discless-cli new secret token NDMyMTkx...
+Created secret in secret.yaml
+```
+
+To use the token in your bots configuration, open your bots configuration and change the following
+```
+- token: 
++ token: secret.token
+```
+
+Now you can run your bot
+```shell
+$ ./discless-cli up bot.yaml
+<bot-name> is running
+```
 
 Run
 ```shell
@@ -45,7 +63,7 @@ You can freely edit this file.
 
 To get your command up and running on the bot, run
 ```shell
-$ ./discless-cli apply <bot name> <function configuration>.yaml
+$ ./discless-cli deploy <bot name> <function configuration>.yaml
 Succesfully uploaded the <function name> command
 ```
 

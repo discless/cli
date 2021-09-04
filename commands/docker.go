@@ -50,7 +50,7 @@ func StartDaemon(c *cobra.Command, args []string) error {
 			"8080/tcp": []nat.PortBinding{
 				{
 					HostIP: "0.0.0.0",
-					HostPort: "6969",
+					HostPort: "8080",
 				},
 			},
 		},
