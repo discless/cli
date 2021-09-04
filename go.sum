@@ -242,6 +242,8 @@ github.com/discless/discless v0.0.0-20210818164013-b8fc0fed00da h1:euajUDy/URY1N
 github.com/discless/discless v0.0.0-20210818164013-b8fc0fed00da/go.mod h1:nJKSHfiHCFl2KjzW6eJooabyg1IIk4xe34N7hFC8+Jc=
 github.com/discless/discless v0.0.0-20210818213551-a6fe55bdea77 h1:wX5RT7ZBKRD0AqRVE5kDlRgmuDLRyfh3r4DlzWFNeq8=
 github.com/discless/discless v0.0.0-20210818213551-a6fe55bdea77/go.mod h1:nJKSHfiHCFl2KjzW6eJooabyg1IIk4xe34N7hFC8+Jc=
+github.com/discless/discless v0.0.0-20210904210605-64dbc4da7b23 h1:E5nXsR69sVwVK8V3aTcVS6Qe9kRuzgeVMNuRUYe6M4Q=
+github.com/discless/discless v0.0.0-20210904210605-64dbc4da7b23/go.mod h1:v8qrnunox6+LMda0SDr+BSCgldboBwt7Gr0eVDeAuCo=
 github.com/dnaeon/go-vcr v1.0.1/go.mod h1:aBB1+wY4s93YsC3HHjMBMrwTj2R9FHDzUr9KyGc8n1E=
 github.com/docker/distribution v0.0.0-20190905152932-14b96e55d84c/go.mod h1:0+TTO4EOBfRPhZXAeF1Vu+W3hHZ8eLp8PgKVZlcvtFY=
 github.com/docker/distribution v2.7.1-0.20190205005809-0d3efadf0154+incompatible/go.mod h1:J2gT2udsDAN96Uj4KfcMRqY0/ypR+oyYUYmja8H+y+w=

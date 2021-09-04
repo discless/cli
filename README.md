@@ -1,6 +1,5 @@
-# Discless CLI
-[![Go](https://github.com/discless/discless-cli/actions/workflows/go.yml/badge.svg)](https://github.com/discless/discless-cli/actions/workflows/go.yml)<br>
-CLI to communicate with the Discless backend.
+# Discless CLI [![Go](https://github.com/discless/discless-cli/actions/workflows/go.yml/badge.svg)](https://github.com/discless/discless-cli/actions/workflows/go.yml)<br>
+Discless CLI is a Command Line Interface to communicate with the Discless backend. It can be used to create discord bots and commands in a FaaS, so you don't have to worry about the command handling.
 
 ## Setup
 First download the Discless binary from the ![releases](https://github.com/discless/discless-cli/releases),
