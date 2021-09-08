@@ -1,4 +1,4 @@
-module github.com/discless/discless-cli
+module github.com/discless/cli
 
 go 1.15
 
