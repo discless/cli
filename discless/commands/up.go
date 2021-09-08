@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/discless/discless-cli/discless/util"
+	"github.com/discless/cli/discless/util"
 	"github.com/discless/discless/types/config"
 	"github.com/spf13/cobra"
 	"gopkg.in/yaml.v2"

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/discless/discless-cli/discless/commands"
+	"github.com/discless/cli/discless/commands"
 	"github.com/spf13/cobra"
 )
 
