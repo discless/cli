@@ -21,4 +21,4 @@ jobs:
     - name: Build
       run: |
         go mod tidy
-        go build .
+        go build ./cmd/discless/main.go
