@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/discless/discless-cli/util"
+	"github.com/discless/discless-cli/discless/util"
 	"github.com/discless/discless/types/config"
 	"github.com/spf13/cobra"
 	"gopkg.in/yaml.v2"
@@ -17,10 +17,10 @@ var (
 )
 
 var UpCmd = &cobra.Command{
-	Use: "up [bot configuration file]",
+	Use:   "up [bot configuration file]",
 	Short: "Run your bot",
-	Args: cobra.MinimumNArgs(1),
-	RunE: FUp,
+	Args:  cobra.MinimumNArgs(1),
+	RunE:  FUp,
 }
 
 func IUp() {

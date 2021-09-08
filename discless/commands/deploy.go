@@ -16,10 +16,10 @@ import (
 )
 
 var DeployCmd = &cobra.Command{
-	Use: "deploy [bot] [function configuration]",
+	Use:   "deploy [bot] [function configuration]",
 	Short: "Deploys a given function to a bot",
-	Args: cobra.MinimumNArgs(2),
-	RunE: FDeploy,
+	Args:  cobra.MinimumNArgs(2),
+	RunE:  FDeploy,
 }
 
 func FDeploy(c *cobra.Command, args []string) error {

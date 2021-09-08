@@ -15,10 +15,10 @@ var (
 )
 
 var NewSecretCmd = &cobra.Command{
-	Use: "secret [secret key] [secret]",
+	Use:   "secret [secret key] [secret]",
 	Short: "Create a new bot with given name",
-	Args: cobra.MinimumNArgs(2),
-	RunE: FNewSecret,
+	Args:  cobra.MinimumNArgs(2),
+	RunE:  FNewSecret,
 }
 
 func INewSecret() {

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/discless/discless-cli/commands"
+	"github.com/discless/discless-cli/discless/commands"
 	"github.com/spf13/cobra"
 )
 
@@ -16,7 +16,7 @@ func main() {
 	rootCmd.AddCommand(commands.NewCmd)
 	rootCmd.AddCommand(commands.DeployCmd)
 	rootCmd.AddCommand(commands.UpCmd)
-	rootCmd.AddCommand(commands.StartCmd,commands.StopCmd)
+	rootCmd.AddCommand(commands.StartCmd, commands.StopCmd)
 	commands.NewCmd.AddCommand(commands.NewFuncCmd, commands.NewBotCmd, commands.NewSecretCmd)
 	rootCmd.Execute()
 }

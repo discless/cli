@@ -16,15 +16,15 @@ var (
 )
 
 var StartCmd = &cobra.Command{
-	Use: "start",
+	Use:   "start",
 	Short: "Start the Discless background daemon",
-	RunE: StartDaemon,
+	RunE:  StartDaemon,
 }
 
 var StopCmd = &cobra.Command{
-	Use: "stop",
+	Use:   "stop",
 	Short: "Stop the Discless background daemon",
-	RunE: StopDaemon,
+	RunE:  StopDaemon,
 }
 
 func StartDaemon(c *cobra.Command, args []string) error {

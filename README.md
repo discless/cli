@@ -6,7 +6,7 @@ First download the Discless binary from the ![releases](https://github.com/discl
 or clone the repository using `git clone https://github.com/discless/discless-cli.git` and run `go build .` to compile Discless yourself
 To start Discless, run
 ```shell
-$ ./discless-cli start
+$ ./cli start
 Succesfully started Docker daemon.
 ```
 
@@ -14,7 +14,7 @@ Succesfully started Docker daemon.
 ### Create a bot
 First, run the `new bot` command and enter your bots token
 ```shell
-$ ./discless-cli new bot <bot name> <prefix>
+$ ./cli new bot <bot name> <prefix>
 Created bot in bot.yaml
 ```
 Your bot should be up and running now, time to create your first command.
@@ -22,7 +22,7 @@ Your bot should be up and running now, time to create your first command.
 ## Run your bot
 First, create a new secret for your token
 ```shell
-$ ./discless-cli new secret token NDMyMTkx...
+$ ./cli new secret token NDMyMTkx...
 Created secret in secret.yaml
 ```
 
@@ -34,13 +34,13 @@ To use the token in your bots configuration, open your bots configuration and ch
 
 Now you can run your bot
 ```shell
-$ ./discless-cli up bot.yaml
+$ ./cli up bot.yaml
 <bot-name> is running
 ```
 
 Run
 ```shell
-$ ./discless-cli new function <function name>
+$ ./cli new function <function name>
 Created the function <function name>
 Edit its configuration in function.yaml or edit the function in <function name>.go
 ```
@@ -62,7 +62,7 @@ You can freely edit this file.
 
 To get your command up and running on the bot, run
 ```shell
-$ ./discless-cli deploy <bot name> <function configuration>.yaml
+$ ./cli deploy <bot name> <function configuration>.yaml
 Succesfully uploaded the <function name> command
 ```
 

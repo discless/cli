@@ -20,10 +20,10 @@ var (
 )
 
 var NewBotCmd = &cobra.Command{
-	Use: "bot [bot name]",
+	Use:   "bot [bot name]",
 	Short: "Create a new bot with given name",
-	Args: cobra.MinimumNArgs(1),
-	RunE: FNewBot,
+	Args:  cobra.MinimumNArgs(1),
+	RunE:  FNewBot,
 }
 
 func INewBot()  {
@@ -63,7 +63,7 @@ func FNewBot(c *cobra.Command, args []string) error {
 		return err
 	}
 
-	fmt.Println("Created bot in",file)
+	fmt.Println("Created bot in", file)
 
 	return nil
 }

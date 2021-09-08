@@ -10,10 +10,10 @@ import (
 )
 
 var NewFuncCmd = &cobra.Command{
-	Use: "function [function name]",
+	Use:   "function [function name]",
 	Short: "Create a new function with given name",
-	Args: cobra.MinimumNArgs(1),
-	RunE: FNewFunc,
+	Args:  cobra.MinimumNArgs(1),
+	RunE:  FNewFunc,
 }
 
 func FNewFunc(cmd *cobra.Command, args []string) error {
