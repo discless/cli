@@ -42,6 +42,6 @@ func ` + yamlTemplate.Functions[args[0]].Function + `(self *types.Self, s *disco
 }`
 	ioutil.WriteFile(yamlTemplate.Functions[args[0]].File,[]byte(goTemplate),0644)
 
-	fmt.Println("Created the function",args[0],"\nEdit its configuration in function.yaml or edit the function in",args[0]+".go")
+	fmt.Println("✅ Created the function",args[0],"\n ⤷ Edit its configuration in function.yaml or edit the function in",args[0]+".go")
 	return nil
 }

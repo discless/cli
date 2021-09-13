@@ -16,6 +16,7 @@ func main() {
 	rootCmd.AddCommand(commands.NewCmd)
 	rootCmd.AddCommand(commands.DeployCmd)
 	rootCmd.AddCommand(commands.UpCmd)
+	rootCmd.AddCommand(commands.AuthCmd)
 	rootCmd.AddCommand(commands.StartCmd, commands.StopCmd)
 	commands.NewCmd.AddCommand(commands.NewFuncCmd, commands.NewBotCmd, commands.NewSecretCmd)
 	rootCmd.Execute()

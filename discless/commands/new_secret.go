@@ -63,7 +63,7 @@ func FNewSecret(command *cobra.Command, args []string) error {
 		return err
 	}
 
-	fmt.Println("Created secret in", ffile)
+	fmt.Println("✅ Created secret in", ffile)
 	return nil
 }
 

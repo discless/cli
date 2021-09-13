@@ -13,6 +13,8 @@ import (
 
 var (
 	imageName = "trizlybear/discless:latest"
+	ip		string
+	port	string
 )
 
 var StartCmd = &cobra.Command{
@@ -25,6 +27,11 @@ var StopCmd = &cobra.Command{
 	Use:   "stop",
 	Short: "Stop the Discless background daemon",
 	RunE:  StopDaemon,
+}
+
+func IStart() {
+	StartCmd.Flags().StringVarP(&ip,"ip","i","localhost","set the ip for the docker daemon to run on")
+	StartCmd.Flags().StringVarP(&port,"port","p","8443","set the port for the docker daemon to run on")
 }
 
 func StartDaemon(c *cobra.Command, args []string) error {
@@ -43,14 +50,14 @@ func StartDaemon(c *cobra.Command, args []string) error {
 	resp, err := cli.ContainerCreate(ctx, &container.Config{
 		Image: imageName,
 		ExposedPorts: nat.PortSet{
-			"8080/tcp": struct{}{},
+			"8443/tcp": struct{}{},
 		},
 	}, &container.HostConfig{
 		PortBindings: nat.PortMap{
-			"8080/tcp": []nat.PortBinding{
+			"8443/tcp": []nat.PortBinding{
 				{
-					HostIP: "0.0.0.0",
-					HostPort: "8080",
+					HostIP: 	ip,
+					HostPort:	port,
 				},
 			},
 		},
@@ -61,14 +68,14 @@ func StartDaemon(c *cobra.Command, args []string) error {
 
 	if err := cli.ContainerStart(ctx, resp.ID, types.ContainerStartOptions{}); err != nil {
 		if errdefs.Conflict(err) != nil {
-			fmt.Println("Docker daemon is already running.")
+			fmt.Println("❌ Docker daemon is already running.")
 			return nil
 		} else {
 			return err
 		}
 
 	}
-	fmt.Println("Succesfully started Docker daemon.")
+	fmt.Println("✅ Succesfully started Docker daemon.")
 	return nil
 }
 
@@ -89,11 +96,11 @@ func StopDaemon(c *cobra.Command, args []string) error {
 			if err := cli.ContainerStop(ctx, container.ID, nil); err != nil {
 				return err
 			}
-			fmt.Println("Succesfully stopped docker daemon.")
+			fmt.Println("✅ Succesfully stopped docker daemon.")
 			return nil
 		}
 	}
-	fmt.Println("Couldn't find a running daemon.")
+	fmt.Println("❌ Couldn't find a running daemon.")
 	return nil
 }
 

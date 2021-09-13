@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/discless/cli/discless"
+	"github.com/discless/cli/discless/dispatcher"
 	"github.com/discless/cli/discless/util"
 	"github.com/discless/discless/types/config"
 	"github.com/spf13/cobra"
@@ -29,6 +31,7 @@ func IUp() {
 
 func FUp(c *cobra.Command, args []string) error {
 	secrets := make(map[string]string)
+
 	if secretf != nil {
 		for _,fn := range secretf {
 			s := &config.Secret{
@@ -73,20 +76,29 @@ func FUp(c *cobra.Command, args []string) error {
 
 	botb, err := json.Marshal(bot)
 
-	req, err := http.NewRequest("POST", "http://localhost:8080/bot", bytes.NewBuffer(botb))
+	req, err := http.NewRequest("POST", "https://" + discless.Host + ":" + discless.Port +"/bot", bytes.NewBuffer(botb))
 	if err != nil {
 		return err
 	}
 
-	client := &http.Client{}
-	resp, err := client.Do(req)
+	resp, err := dispatcher.Client.Do(req)
 	if err != nil {
-		fmt.Println(err)
 		return err
 	}
 	defer resp.Body.Close()
 
-	fmt.Println("Bot \"" + bot.Name + "\" is running")
+	fmt.Println("✅ Bot \"" + bot.Name + "\" is running")
+
+	bodyb, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return err
+	}
+
+	token := string(bodyb)
+
+	if err := discless.AddKey(bot.Name, token); err != nil {
+		return err
+	}
 
 	return nil
 }

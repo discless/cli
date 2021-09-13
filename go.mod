@@ -10,6 +10,7 @@ require (
 	github.com/docker/go-connections v0.4.0
 	github.com/morikuni/aec v1.0.0 // indirect
 	github.com/spf13/cobra v1.2.1
+	github.com/spf13/viper v1.8.1 // indirect
 	golang.org/x/term v0.0.0-20210615171337-6886f2dfbf5b
 	gopkg.in/yaml.v2 v2.4.0
 )

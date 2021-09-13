@@ -3,16 +3,16 @@ package commands
 import (
 	"bytes"
 	"fmt"
+	"github.com/discless/cli/discless"
+	"github.com/discless/cli/discless/dispatcher"
 	config2 "github.com/discless/discless/types/config"
 	"github.com/spf13/cobra"
 	"gopkg.in/yaml.v2"
 	"io"
 	"io/ioutil"
-	"log"
 	"mime/multipart"
 	"net/http"
 	"os"
-	"time"
 )
 
 var DeployCmd = &cobra.Command{
@@ -31,16 +31,21 @@ func FDeploy(c *cobra.Command, args []string) error {
 	yaml.Unmarshal(file, config)
 
 	for function, ap := range config.Functions {
-		PostDeploy(function,ap, args[0])
+		err := PostDeploy(function,ap, args[0])
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil
 }
 
 func PostDeploy(name string, function config2.Function, bot string) error {
-	client := &http.Client{
-		Timeout: time.Second * 10,
+	token, err := discless.GetKey(bot)
+	if err != nil {
+		return err
 	}
+
 	body := &bytes.Buffer{}
 	writer := multipart.NewWriter(body)
 
@@ -63,18 +68,26 @@ func PostDeploy(name string, function config2.Function, bot string) error {
 	}
 	writer.Close()
 
-	req, err := http.NewRequest("POST", "http://localhost:8080/function", bytes.NewReader(body.Bytes()))
+	req, err := http.NewRequest("POST", "https://" + discless.Host + ":" + discless.Port + "/function", bytes.NewReader(body.Bytes()))
+	req.Header.Set("Authorization", "Basic " + token)
 	if err != nil {
 		panic(err)
 	}
 	req.Header.Set("Content-Type", writer.FormDataContentType())
-	rsp, _ := client.Do(req)
+	rsp, _ := dispatcher.Client.Do(req)
 
-	if rsp.StatusCode != http.StatusOK {
-		log.Printf("Request failed with response code: %d", rsp.StatusCode)
+	b, err := ioutil.ReadAll(rsp.Body)
+
+	if err != nil {
+		return err
 	}
 
-	fmt.Println("Succesfully uploaded the", name, "command")
+	if rsp.StatusCode != http.StatusOK {
+		fmt.Printf("❌ Request failed with response code: %d \n ⤷ %s", rsp.StatusCode, string(b))
+		return nil
+	}
+
+	fmt.Println("✅ Successfully uploaded the", name, "command")
 
 	return nil
 }
